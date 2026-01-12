@@ -15,5 +15,14 @@ export default defineNuxtConfig({
   },
   app: {
     baseURL: '/myProjSite/'
+  },
+  nitro: {
+    preset: 'static',
+    publicAssets: [
+      {
+        baseURL: '/myProjSite/',
+        dir: 'public'
+      }
+    ]
   }
 })

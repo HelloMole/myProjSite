@@ -12,5 +12,8 @@ export default defineNuxtConfig({
   },
   colorMode: {
     preference: 'dark'
+  },
+  app: {
+    baseURL: '/myProjSite/'
   }
 })

@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     preset: 'static',
     publicAssets: [
       {
-        baseURL: '/myProjSite/',
+        baseURL: '/myProjSite',
         dir: 'public'
       }
     ]

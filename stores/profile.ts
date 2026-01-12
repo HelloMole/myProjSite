@@ -21,10 +21,10 @@ export interface WorkExperience {
 export const useProfileStore = defineStore('profile', {
   state: () => ({
     personalInfo: {
-      name: '李耀威',
+      name: 'Yawei Li',
       gender: '男',
       age: 27,
-      phone: '17621492349',
+      phone: '微信号：Xinzisuoyu',
       email: '648925074@qq.com',
       experience: '6年工作经验',
       position: '程序员',

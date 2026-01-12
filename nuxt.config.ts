@@ -14,15 +14,24 @@ export default defineNuxtConfig({
     preference: 'dark'
   },
   app: {
-    baseURL: '/myProjSite/'
+    baseURL: '/myProjSite/',
+    buildAssetsDir: '/_nuxt/'
   },
   nitro: {
     preset: 'static',
+    output: {
+      dir: 'docs'
+    },
     publicAssets: [
       {
-        baseURL: '/myProjSite',
+        baseURL: '/myProjSite/',
         dir: 'public'
       }
     ]
+  },
+  router: {
+    options: {
+      strict: false
+    }
   }
 })

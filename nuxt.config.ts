@@ -6,6 +6,9 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@pinia/nuxt'
   ],
+  ui: {
+    global: true
+  },
   alias: {
     '~': '.',
     '@': '.'
@@ -17,21 +20,18 @@ export default defineNuxtConfig({
     baseURL: '/myProjSite/',
     buildAssetsDir: '/_nuxt/'
   },
+  experimental: {
+    payloadExtraction: false
+  },
+  vite: {
+    build: {
+      cssCodeSplit: false
+    }
+  },
   nitro: {
     preset: 'static',
-    output: {
-      dir: 'docs'
-    },
-    publicAssets: [
-      {
-        baseURL: '/myProjSite/',
-        dir: 'public'
-      }
-    ]
-  },
-  router: {
-    options: {
-      strict: false
+    prerender: {
+      crawlLinks: true
     }
   }
 })

@@ -22,7 +22,7 @@
         </div>
       </template>
 
-      <a-descriptions :column="2" bordered>
+      <a-descriptions :column="{md:2, sm:1, xs: 1}" bordered size="small">
         <a-descriptions-item label="项目时间">
           <CalendarOutlined />
           {{ project.date }}
@@ -461,8 +461,8 @@ const openLink = (url: string) => {
   }
 
   .project-header {
-    flex-direction: column;
-    align-items: flex-start;
+    /* flex-direction: column; */
+    /* align-items: flex-start; */
   }
 
   .project-header h1 {

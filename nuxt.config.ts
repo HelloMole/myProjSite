@@ -2,36 +2,32 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: [
-    '@nuxt/ui',
-    '@pinia/nuxt'
-  ],
-  ui: {
-    global: true
-  },
-  alias: {
-    '~': '.',
-    '@': '.'
-  },
-  colorMode: {
-    preference: 'dark'
-  },
+  modules: ['@pinia/nuxt'],
   app: {
     baseURL: '/myProjSite/',
-    buildAssetsDir: '/_nuxt/'
+    buildAssetsDir: '/other/',
   },
-  experimental: {
-    payloadExtraction: false
+  alias: {
+    "~": "/<srcDir>",
+    "@": "/<srcDir>",
+    "~~": "/<rootDir>",
+    "@@": "/<rootDir>",
   },
-  vite: {
-    build: {
-      cssCodeSplit: false
+  ssr: false, //开启客户端渲染
+  // nitro: {
+  //   prerender: {
+  //     routes: [
+  //       '/project/music-tree',
+  //       '/project/book-edit',
+  //       '/project/tata-read',
+  //       '/project/stock-backtest',
+  //       '/project/wx-game',
+  //     ]
+  //   },
+  // },
+  hooks: {
+    'prerender:routes' ({ routes }) {
+      routes.clear() // 不生成任何路由（除了默认路由）
     }
   },
-  nitro: {
-    preset: 'static',
-    prerender: {
-      crawlLinks: true
-    }
-  }
 })

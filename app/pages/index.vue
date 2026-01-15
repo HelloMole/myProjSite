@@ -116,7 +116,7 @@
               <a-card
                 class="project-item-card"
                 hoverable
-                @click="goToProject(project.id)"
+                @click="goToProject(project)"
               >
                 <template #title>
                   <div class="project-title">
@@ -172,6 +172,17 @@ const router = useRouter()
 
 const projects = ref([
   {
+    id: 'battle-of-balls',
+    name: '复刻球球大作战官网页面',
+    type: 'game',
+    role: '程序',
+    date: '2026.01.15',
+    description: '使用Cursor辅助编程一天时间复刻球球大作战官网页面（pc端）',
+    achievements: '点击查看页面，该页面仅为练习作品，与球球大作战官方无关',
+    tagColor: 'blue',
+    pagePath: '/battleofballs'
+  },
+  {
     id: 'book-edit',
     name: '无代码可视化编辑器',
     type: 'tool',
@@ -226,8 +237,12 @@ const projects = ref([
   },
 ])
 
-const goToProject = (id: string) => {
-  router.push(`/project/detail_${id}`)
+const goToProject = (project: any) => {
+  if(project.pagePath) {
+    router.push(project.pagePath)
+  }else{
+    router.push(`/project/detail_${project.id}`)
+  }
 }
 </script>
 
